@@ -3,17 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Core;
+package SampleInterceptorTest;
 
-import java.util.List;
+import javax.ejb.Local;
 
 /**
  *
  * @author IEUser
  */
-public interface ITurnObserver {
-    void registerUser(User user);
-    void notifyTurn();
-    int getObserverId();
-    List<User> getRegisteredUsers();
+@Local
+public interface TesterLocal {
+    
 }
