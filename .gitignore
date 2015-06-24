@@ -1,3 +1,8 @@
+/TurnsPOC/nbproject/private/
+/TurnsPOC/TurnsPOC-war/nbproject/private/
+/TurnsPOC/TurnsPOC-ejb/nbproject/private/
+/TurnsPOC/TurnsPOC-ejb/build/
+/TurnsPOC/TurnsPOC-ejb/dist/
 /source/jax-ws-poc/CalculatorWSApplication/build/
 /source/jax-ws-poc/CalculatorWSApplication/nbproject/private/
 /source/jax-ws-poc/CalculatorWS_Client_Application/build/
