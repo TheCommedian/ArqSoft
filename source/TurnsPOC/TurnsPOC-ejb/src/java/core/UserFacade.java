@@ -25,7 +25,7 @@ public class UserFacade implements UserFacadeLocal {
             ChannelNotFoundExcepcion {
         
         Optional<TurnSource> source = SourceCatalog.getInstance().findSourceById(sourceId);
-        Optional<ITurnObserver> observer;
+        Optional<TurnObserver> observer;
 
         if (source.isPresent()) {
             observer = source.get().findObserverById(channelId);

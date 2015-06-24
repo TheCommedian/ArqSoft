@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author IEUser
  */
-public interface ITurnObserver {
+public interface TurnObserver {
     void registerUser(User user);
     
     void notifyTurn();

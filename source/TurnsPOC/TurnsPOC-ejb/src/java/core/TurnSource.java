@@ -21,7 +21,7 @@ public class TurnSource {
     private int sourceId;
     private String description;
     private String currentTurn;
-    private final List<ITurnObserver> observers;
+    private final List<TurnObserver> observers;
     
     public TurnSource() {
         description = "";
@@ -45,7 +45,7 @@ public class TurnSource {
      *
      * @return the value of observers
      */
-    public List<ITurnObserver> getObservers() {
+    public List<TurnObserver> getObservers() {
         return observers;
     }
 
@@ -103,7 +103,7 @@ public class TurnSource {
      * @param observer
      * @throws IllegalArgumentException
      */
-    public void registerObserver(ITurnObserver observer) throws IllegalArgumentException {
+    public void registerObserver(TurnObserver observer) throws IllegalArgumentException {
         if (observer == null) {
             throw new IllegalArgumentException("Observer cannot be null");
         }
@@ -115,7 +115,7 @@ public class TurnSource {
      *
      * @param observer
      */
-    public void removeObserver(ITurnObserver observer) {
+    public void removeObserver(TurnObserver observer) {
         if (observer != null) {
             observers.remove(observer);
         }
@@ -126,7 +126,7 @@ public class TurnSource {
      * @param observerId
      * @return the observer corresponding to the given ID (if found)
      */
-    public Optional<ITurnObserver> findObserverById(int observerId) {
+    public Optional<TurnObserver> findObserverById(int observerId) {
         return observers.stream()
                 .filter(o -> o.getObserverId() == observerId)
                 .findFirst();
