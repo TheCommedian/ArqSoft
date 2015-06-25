@@ -16,7 +16,7 @@ import javax.ejb.Singleton;
  * @author Marcelo Barberena / Fernando Maidana
  */
 @Singleton
-public class UserFacade implements UserFacadeLocal {
+public class UserFacade implements UserFacadeRemote {
 
     @Override
     public void registerByPhoneNumber(final String phoneNumber, String turnId, int sourceId, int channelId)

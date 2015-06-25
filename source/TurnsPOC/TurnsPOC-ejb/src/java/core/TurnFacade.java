@@ -16,7 +16,7 @@ import javax.ejb.Singleton;
  * @author Marcelo Barberena / Fernando Maidana
  */
 @Singleton
-public class TurnFacade implements TurnFacadeLocal {
+public class TurnFacade implements TurnFacadeRemote {
 
     /**
      *

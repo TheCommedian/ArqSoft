@@ -6,14 +6,14 @@
 
 package core;
 
-import javax.ejb.Local;
+import javax.ejb.Remote;
 
 /**
  *
  * @author Marcelo Barberena / Fernando Maidana
  */
-@Local
-public interface UserFacadeLocal {
+@Remote
+public interface UserFacadeRemote {
 
     void registerByPhoneNumber(final String phoneNumber, String turnId, int sourceId, int channelId)
             throws 

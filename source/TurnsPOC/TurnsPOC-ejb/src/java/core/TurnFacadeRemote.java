@@ -6,15 +6,15 @@
 
 package core;
 
-import javax.ejb.Local;
+import javax.ejb.Remote;
 
 /**
  *
- * @author IEUser
+ * @author Marcelo Barberena / Fernando Maidana
  */
-@Local
-public interface TurnFacadeLocal {
-
+@Remote
+public interface TurnFacadeRemote {
+    
     void notifyChanges(final int sourceId, final String turnId) throws TurnSourceNotFoundException;
     
     String getCurrentTurn(final int sourceId) throws TurnSourceNotFoundException;
