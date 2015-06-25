@@ -7,13 +7,12 @@
 package core;
 
 import common.StringUtils;
-import java.io.Serializable;
 
 /**
  *
  * Marcelo Barberena / Fernando Maidana
  */
-public class User implements Serializable {
+public class User {
     
     private String phoneNumber;
     private String turnId;
@@ -66,29 +65,5 @@ public class User implements Serializable {
     public void setPhoneNumber(String phoneNumber) {
         StringUtils.validateNotNullOrEmpty(phoneNumber, "phoneNumber");
         this.phoneNumber = phoneNumber;
-    }
-    
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += getPhoneNumber().hashCode();
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof User)) {
-            return false;
-        }
-        
-        User other = (User) object;
-        if (this.getPhoneNumber() == null
-                ? other.getPhoneNumber() != null 
-                : !this.getPhoneNumber().equals(other.getPhoneNumber())) {
-            return false;
-        }
-        
-        return true;
     }
 }
