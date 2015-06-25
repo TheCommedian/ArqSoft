@@ -11,17 +11,12 @@ package core;
  * @author Marcelo Barberena / Fernando Maidana
  */
 import common.StringUtils;
-import java.io.Serializable;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/**
- *
- * @author IEUser
- */
-public class TurnSource implements Serializable {
+public class TurnSource {
 
     private int sourceId;
     private String description;
@@ -72,7 +67,7 @@ public class TurnSource implements Serializable {
         StringUtils.validateNotNullOrEmpty(currentTurn, "currentTurn");
         this.currentTurn = currentTurn;
         
-        this.notifyObservers(currentTurn);
+        this.notifyObservers();
     }
 
     /**
@@ -139,32 +134,8 @@ public class TurnSource implements Serializable {
     
     /**
      * Notify all observers when a turn change occurs
-     * @param turnId
      */
-    protected void notifyObservers(String turnId) {
-        observers.stream().forEach((observer) -> { observer.notifyTurn(turnId); });
+    protected void notifyObservers() {
+        observers.stream().forEach((observer) -> { observer.notifyTurn(); });
     }
-    
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (int) sourceId;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TurnSource)) {
-            return false;
-        }
-        
-        TurnSource other = (TurnSource) object;
-        if (this.sourceId != other.sourceId) {
-            return false;
-        }
-        
-        return true;
-    }
-    
 }
