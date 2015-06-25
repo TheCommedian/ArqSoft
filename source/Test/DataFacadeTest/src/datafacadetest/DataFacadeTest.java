@@ -8,10 +8,10 @@ package datafacadetest;
 
 //import data.DataFacade;
 //import data.UserEntity;
-import data.BaseEntity;
-import data.UserEntity;
 import data.DataFacade;
+import data.UserEntity;
 import data.TurnSourceEntity;
+
 import java.util.List;
 
 /**
@@ -24,42 +24,41 @@ public class DataFacadeTest {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-        DataFacade dataFacade = new DataFacade();
         UserEntity user;
         Long id;
         
         user = new UserEntity();
         user.setPhoneNumber("11111");
         user.setTurnId("1");
-        id = dataFacade.create(user);
+        id = DataFacade.create(user);
         
         user = new UserEntity();
         user.setPhoneNumber("44444");
         user.setTurnId("4");
-        id = dataFacade.create(user);
+        id = DataFacade.create(user);
         
         user = new UserEntity();
         user.setPhoneNumber("2222");
         user.setTurnId("3");
-        id =  dataFacade.create(user);
+        id =  DataFacade.create(user);
         
         List<UserEntity> users;               
-        users = dataFacade.getAllUsers();
+        users = DataFacade.getAllUsers();
         
         UserEntity userUpdate = users.get(0);
         userUpdate.setPhoneNumber("909090");
-        dataFacade.edit(userUpdate);
+        DataFacade.edit(userUpdate);
         
         TurnSourceEntity turnSource = new TurnSourceEntity();
         turnSource.setDescription("turno antel");
         turnSource.setCurrentTurn("3");
-        id = dataFacade.create(turnSource);
+        id = DataFacade.create(turnSource);
         
-        List<TurnSourceEntity> turns = dataFacade.getAllTurnSources();
+        List<TurnSourceEntity> turns = DataFacade.getAllTurnSources();
         
         TurnSourceEntity turnUpdate = turns.get(0);
         turnUpdate.setCurrentTurn("909090");
-        dataFacade.edit(turnUpdate);
+        DataFacade.edit(turnUpdate);
         
         
     }

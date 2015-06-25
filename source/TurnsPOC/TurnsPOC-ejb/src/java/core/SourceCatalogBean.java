@@ -7,8 +7,11 @@
 package core;
 
 import common.StringUtils;
+import data.DataFacade;
+import data.TurnSourceEntity;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import javax.ejb.Singleton;
@@ -27,8 +30,10 @@ public class SourceCatalogBean implements SourceCatalogBeanLocal, SourceCatalogB
 
     public SourceCatalogBean() {
         turnSources = new ArrayList<>();
-    }
- 
+        List<TurnSourceEntity> entities = DataFacade.getAllTurnSources();
+        entities.stream().forEach((entity) -> { turnSources.add(mapFromEntity(entity)); });               
+    }  
+     
     /**
      * Get the value of turnSources
      *
@@ -45,13 +50,18 @@ public class SourceCatalogBean implements SourceCatalogBeanLocal, SourceCatalogB
         if (source == null) {
             throw new IllegalArgumentException("source cannot be null");
         }
+        TurnSourceEntity entity = mapToEntity(source);
+        DataFacade.create(entity);
         
         turnSources.add(source);
     }
     
     @Override
     public void removeSource(TurnSource source) {
-        if (source != null) {
+        if (source != null) {            
+            TurnSourceEntity entity = mapToEntity(source);
+            //TODO implementar el remover entidad en la DataFacade 
+            //DataFacade.remove(entity);            
             turnSources.remove(source);
         }
     }
@@ -76,4 +86,18 @@ public class SourceCatalogBean implements SourceCatalogBeanLocal, SourceCatalogB
                 .filter(s -> s.getDescription().equals(description))
                 .findFirst();
     }
+    
+    private TurnSource mapFromEntity(TurnSourceEntity entity) {
+        TurnSource turnSource = new TurnSource();
+        turnSource.setCurrentTurn(entity.getCurrentTurn());
+        turnSource.setDescription(entity.getDescription());
+        return turnSource;
+    } 
+    
+    private TurnSourceEntity mapToEntity(TurnSource turnSource) {
+        TurnSourceEntity entity = new TurnSourceEntity();
+        entity.setCurrentTurn(turnSource.getCurrentTurn());
+        entity.setDescription(turnSource.getDescription());
+        return entity;
+    } 
 }

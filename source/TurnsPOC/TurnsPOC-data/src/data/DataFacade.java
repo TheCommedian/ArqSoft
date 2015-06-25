@@ -20,13 +20,13 @@ import javax.persistence.criteria.CriteriaQuery;
 
 public class DataFacade {
     
-    private final EntityManagerFactory emf;
+    private static EntityManagerFactory emf;
         
-    public DataFacade() {
+    private DataFacade() {
         this.emf = javax.persistence.Persistence.createEntityManagerFactory("TurnsPOC-ejbPU");
     }
     
-    public Long create(BaseEntity entity) {
+    public static Long create(BaseEntity entity) {
         EntityManager em = emf.createEntityManager();
         Long id;
         em.getTransaction().begin();
@@ -43,7 +43,7 @@ public class DataFacade {
         return id;
     }
     
-    public void edit(BaseEntity entity) throws Exception {
+    public static void edit(BaseEntity entity) throws Exception {
         EntityManager em = emf.createEntityManager();
         try {            
             em.getTransaction().begin();
@@ -56,7 +56,7 @@ public class DataFacade {
         }   
     }       
     
-    public List<UserEntity> getAllUsers() {
+    public static List<UserEntity> getAllUsers() {
         EntityManager em = emf.createEntityManager();
         CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
         cq.select(cq.from(UserEntity.class));
@@ -66,7 +66,7 @@ public class DataFacade {
         return result;
     } 
     
-    public List<TurnSourceEntity> getAllTurnSources() {
+    public static List<TurnSourceEntity> getAllTurnSources() {
         EntityManager em = emf.createEntityManager();
         CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
         cq.select(cq.from(TurnSourceEntity.class));
