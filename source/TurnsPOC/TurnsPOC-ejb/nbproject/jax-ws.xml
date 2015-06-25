@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services>
+    <service name="TurnBean">
+      <implementation-class>core.TurnBean</implementation-class>
+    </service>
+    <service name="UserBean">
+      <implementation-class>core.UserBean</implementation-class>
+    </service>
+    <service name="SourceCatalogBean">
+      <implementation-class>core.SourceCatalogBean</implementation-class>
+    </service>
+  </services>
+  <clients/>
+</jax-ws>

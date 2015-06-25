@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/arqSoft.services/UserBean?wsdl" uri="src/conf/xml-resources/web-service-references/UserBean/wsdl/localhost_8080/arqSoft.services/UserBean.wsdl"/>
+    <system systemId="http://localhost:8080/arqSoft.services/UserBean?xsd=1" uri="src/conf/xml-resources/web-service-references/UserBean/wsdl/localhost_8080/arqSoft.services/UserBean.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/arqSoft.services/TurnBean?wsdl" uri="src/conf/xml-resources/web-service-references/TurnBean_1/wsdl/localhost_8080/arqSoft.services/TurnBean.wsdl"/>
+    <system systemId="http://localhost:8080/arqSoft.services/TurnBean?xsd=1" uri="src/conf/xml-resources/web-service-references/TurnBean_1/wsdl/localhost_8080/arqSoft.services/TurnBean.xsd_1.xsd"/>
+</catalog>

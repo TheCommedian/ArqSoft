@@ -6,16 +6,15 @@
 
 package core;
 
-import javax.ejb.Remote;
+import java.util.Optional;
+import javax.ejb.Local;
 
 /**
  *
  * @author Marcelo Barberena / Fernando Maidana
  */
-@Remote
-public interface TurnFacadeRemote {
+@Local
+public interface SourceCatalogBeanLocal {
     
-    void notifyChanges(final int sourceId, final String turnId) throws TurnSourceNotFoundException;
-    
-    String getCurrentTurn(final int sourceId) throws TurnSourceNotFoundException;
+    Optional<TurnSource> findSourceByIdLocal(int sourceId);
 }

@@ -13,10 +13,9 @@ import javax.ejb.Remote;
  * @author Marcelo Barberena / Fernando Maidana
  */
 @Remote
-public interface UserFacadeRemote {
-
-    void registerByPhoneNumber(final String phoneNumber, String turnId, int sourceId, int channelId)
-            throws 
-                TurnSourceNotFoundException,
-                ChannelNotFoundExcepcion;
+public interface TurnBeanRemote {
+    
+    void notifyChanges(final int sourceId, final String turnId) throws TurnSourceNotFoundException;
+    
+    String getCurrentTurn(final int sourceId) throws TurnSourceNotFoundException;
 }

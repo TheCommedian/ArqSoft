@@ -9,22 +9,40 @@ package core;
 import common.Constants;
 
 import java.util.Optional;
+import javax.ejb.EJB;
 import javax.ejb.Singleton;
+import javax.jws.WebService;
 
 /**
  *
  * @author Marcelo Barberena / Fernando Maidana
  */
+@WebService(serviceName = "arqSoft.services")
 @Singleton
-public class UserFacade implements UserFacadeRemote {
+public class UserBean implements UserBeanRemote {
 
+    @EJB
+    private SourceCatalogBeanLocal sourceCatalog;
+
+    public UserBean() {
+    }
+    
+    /**
+     *
+     * @param phoneNumber
+     * @param turnId
+     * @param sourceId
+     * @param channelId
+     * @throws TurnSourceNotFoundException
+     * @throws ChannelNotFoundExcepcion
+     */
     @Override
     public void registerByPhoneNumber(final String phoneNumber, String turnId, int sourceId, int channelId)
         throws 
             TurnSourceNotFoundException,
             ChannelNotFoundExcepcion {
         
-        Optional<TurnSource> source = SourceCatalog.getInstance().findSourceById(sourceId);
+        Optional<TurnSource> source = sourceCatalog.findSourceByIdLocal(sourceId);
         Optional<TurnObserver> observer;
 
         if (source.isPresent()) {

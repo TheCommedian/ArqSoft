@@ -6,16 +6,17 @@
 
 package core;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author IEUser
  */
-public interface TurnObserver {
+public interface TurnObserver extends Serializable {
     void registerUser(User user);
     
-    void notifyTurn();
+    void notifyTurn(String turnId);
     
     int getObserverId();
     
