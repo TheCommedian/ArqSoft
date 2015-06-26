@@ -26,7 +26,6 @@ public class ApplicationClientBean implements ApplicationClientBeanRemote, TurnO
         this.registeredUsers = new ArrayList<>();
     }
     
-    
     @Override
     public void notify(String turnId) {
         Logger.getLogger(ApplicationClientBean.class.getName()).log(Level.INFO, "Turn changed: {0}", turnId);
@@ -40,9 +39,9 @@ public class ApplicationClientBean implements ApplicationClientBeanRemote, TurnO
     }
 
     @Override
-    public void notifyTurn(String turnId) {
+    public void notifyTurn() {
         this.registeredUsers.forEach(u -> { 
-            System.out.println(String.format("El turno ha cambiado a: {0}", turnId)); });
+            System.out.println("El turno ha cambiado!"); });
     }
 
     @Override
