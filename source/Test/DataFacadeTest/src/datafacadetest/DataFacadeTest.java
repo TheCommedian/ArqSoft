@@ -9,8 +9,8 @@ package datafacadetest;
 //import data.DataFacade;
 //import data.UserEntity;
 import data.DataFacade;
-import data.UserEntity;
 import data.TurnSourceEntity;
+import data.UserEntity;
 
 import java.util.List;
 
@@ -25,8 +25,7 @@ public class DataFacadeTest {
      */
     public static void main(String[] args) throws Exception {
         UserEntity user;
-        Long id;
-        
+        Long id;        
         user = new UserEntity();
         user.setPhoneNumber("11111");
         user.setTurnId("1");

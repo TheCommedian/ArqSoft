@@ -12,12 +12,14 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Singleton;
+import javax.interceptor.Interceptors;
 
 /**
  *
  * @author Marcelo Barberena / Fernando Maidana
  */
 @Singleton
+//@Interceptors(SampleInterceptor.class)
 public class ApplicationClientBean implements ApplicationClientBeanRemote, TurnObserver {
 
     private List<User> registeredUsers;
